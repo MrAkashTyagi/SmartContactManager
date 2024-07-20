@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base::parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title data-th-text="${loggedInUser.name} +' | SCM'">Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen">
+    <div id="content" class="h-full m-4">
+        <!-- Sidebar if user is logged in -->
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+        <!-- User card -->
+        <div class="contact_container h-full flex">
+            <!-- Left Side: Image -->
+            <div class="w-1/3 h-full sm:pl-64 pt-20">
+                <img class="object-cover w-full h-full" src="/docs/images/blog/image-4.jpg" data-th-src="@{'/images/default.png'}" alt="">
+            </div>
+            
+            <!-- Right Side: Content -->
+            <div class="flex-grow bg-white pt-20 h-full w-full dark:bg-gray-700 rounded-lg">
+                <h1 class="text-5xl mb-4 text-center"> Welcome to Profile Page</h1>
+                <div data-th-replace="message :: messagebox"></div>
+                <div class="flex flex-col justify-between p-4 leading-normal w-full border border-gray-200 rounded-lg shadow dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Your Details
+                    </h5>
+                    
+                    <p data-th-text="${loggedInUser.name}" class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                    </p>     
+                    <p data-th-text="${loggedInUser.email}"></p>
+                    <p data-th-text="${loggedInUser.about}"></p>
+                    <hr/>
+                    <br>
+                    
+                    <h3 class="text-xl mb-3">Donate Us</h3>
+                
+
+                    <input
+                    id="payment_field"
+                    type="text"
+                    class="form-control mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter amount to pay"
+                  />
+                  <button
+                  onclick="paymentStart()"
+                  type="submit"
+                  class="px-3 py-2 mb-2 dark:bg-blue-600 hover:dark:bg-blue-700 py-2 rounded bg-green-700 text-white"
+                >
+                  Pay
+                </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+      console.log("Profile page");
+    </script>
+</body>
+</html>

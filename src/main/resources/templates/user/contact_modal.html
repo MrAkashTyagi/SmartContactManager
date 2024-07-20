@@ -1,0 +1,157 @@
+<div data-th-fragment="contactFragment">
+  <!-- Main modal -->
+  <div
+    id="contact_view_modal"
+    tabindex="-1"
+    aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+  >
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div
+          class="flex flex-col text-center items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+        >
+          <button
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            onclick="closeContactModal()"
+          >
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+
+          <img
+            id="contact_image"
+            data-th-src="@{'/images/default.png'}"
+            class="w-32 h-32 rounded-full"
+            alt=""
+          />
+          <h3
+            id="contact_name"
+            class="text-xl font-semibold text-gray-900 dark:text-white"
+          ></h3>
+          <p id="contact_email"></p>
+          <p id="contact_number"></p>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 md:p-5 space-y-4">
+          <div class="relative overflow-x-auto"></div>
+
+          <table
+            class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <tbody>
+              <!-- address row -->
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <i class="fa-solid fa-location-dot w-6 h-6"></i>
+                </th>
+                <td class="px-6 py-4">
+                  <span id="contact_address">Muzaffarnagar</span>
+                </td>
+              </tr>
+
+              <!-- description row -->
+
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <i class="fa-solid fa-user w-6 h-6"></i>
+                </th>
+                <td class="px-6 py-4">
+                  <span id="contact_description">Muzaffarnagar</span>
+                </td>
+              </tr>
+
+              <!-- favorite row -->
+
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <i class="fa-regular fa-heart w-6 h-6"></i>
+                </th>
+                <td class="px-6 py-4">
+                  <span id="contact_favorite">Muzaffarnagar</span>
+                </td>
+              </tr>
+
+              <!-- website link row -->
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <i class="fa-solid fa-earth-americas w-6 h-6"></i>
+                </th>
+                <td class="px-6 py-4">
+                  <a id="contact_website">Muzaffarnagar</a>
+                </td>
+              </tr>
+
+              <!-- linkedin link row -->
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <i class="fa-brands fa-linkedin w-6 h-6"></i>
+                </th>
+                <td class="px-6 py-4">
+                  <a id="contact_linkedin">Muzaffarnagar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Modal footer -->
+        <div
+          class="flex text-center justify-center items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+        >
+          <div class="text-center">
+            <button
+              onclick="closeContactModal()"
+              data-modal-hide="contact_view_modal"
+              type="button"
+              class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

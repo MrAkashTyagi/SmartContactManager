@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>Settings Page</title>
+  </head>
+
+  <body>
+    <div id="content">
+      <!-- if user is logged in : sidebar -->
+      <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+      </div>
+
+      <div class="sm:pl-64 pt-20" style="height: 1000px">
+        <div class="flex justify-center items-center">
+          <h1 class="text-5xl">Welome to Settings page</h1>
+        </div>
+
+        <!-- password reset card -->
+
+        <div data-th-replace="message :: messagebox"></div>
+
+        <div
+          class="w-full max p-4 mt-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
+        >
+          <form class="space-y-6" action="#" data-th-action="@{/user/change-password}" method="post">
+            <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">
+              Reset your password
+            </h5>
+            <div>
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Old Password</label
+              >
+              <input
+                type="password"
+                name="oldPassword"
+                id="oldPassword"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Enter old password here"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="newPassword"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"                
+                >New password</label
+              >
+              <input
+                type="password"
+                name="newPassword"
+                id="newPassword"
+                placeholder="Enter new password here"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
+            </div>
+            
+            <button
+              type="submit"
+              class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Change
+            </button>
+            <button
+              type="reset"
+              class="w-full text-white bg-orange-700 hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Reset
+            </button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("Profile page");
+    </script>
+    <script>
+      $(document).ready(() => {
+        $(".item").removeClass("active");
+        $(".settings-link").addClass("active");
+      });
+    </script>
+  </body>
+</html>

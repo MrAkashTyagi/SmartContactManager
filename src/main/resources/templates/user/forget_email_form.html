@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="grid grid-cols-12">
+        <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+
+        <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+          <!-- card -->
+          <div
+            class="block p-6 border-t-[10px] border-green-700 pt-9 bg-white rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700"
+          >
+            <!-- message here -->
+
+            <div data-th-replace="message :: messagebox"></div>
+
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center"
+            >
+              Your Registered email
+            </h5>
+
+            <form action=""
+            data-th-action="@{'/send-otp'}"
+            method="post"
+            >
+              <div class="mt-5">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  placeholder="Enter your email here"
+                  required
+                />
+              </div>
+
+              <div class="container text-center">
+                <button
+                  type="submit"
+                  class="text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5"
+                >
+                  Send OTP
+                </button>
+              </div>
+            </form>
+
+            <div class="text-red-400 text-center my-3" th:if="${param.error}">
+              Invalid username and password.
+            </div>
+            <div
+              class="text-green-400 text-center my-3"
+              th:if="${param.logout}"
+            >
+              You have been logged out.
+            </div>
+
+            <!-- this is  email form -->
+
+            <div
+              class="social-buttons-container flex justify-center items-center mt-10 flex-col space-y-4"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("forget page");
+    </script>
+  </body>
+</html>
